@@ -59,6 +59,14 @@ void Family<T>::Remove(T* metric) {
 }
 
 template <typename T>
+void Family<T>::Clear() {
+  std::lock_guard<std::mutex> lock{mutex_};
+  metrics_.clear();
+  labels_.clear();
+  labels_reverse_lookup_.clear();
+}
+
+template <typename T>
 const std::string& Family<T>::GetName() const {
   return name_;
 }

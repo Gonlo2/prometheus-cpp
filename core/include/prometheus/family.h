@@ -118,6 +118,9 @@ class PROMETHEUS_CPP_CORE_EXPORT Family : public Collectable {
   /// if the given metric was not returned by Add().
   void Remove(T* metric);
 
+  /// \brief Clear all the stored dimensional data.
+  void Clear();
+
   /// \brief Returns the name for this family.
   ///
   /// \return The family name.
